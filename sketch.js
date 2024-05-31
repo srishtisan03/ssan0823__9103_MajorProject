@@ -20,6 +20,7 @@ glowingCircle2,
 song, button;
 
 function preload(){
+  //song = loadSound('Assets/Metre - Platform (slow techno mix).mp3');
   song = loadSound('Assets/Nul Tiel Records - Glass Ceiling.mp3');
 }
 
