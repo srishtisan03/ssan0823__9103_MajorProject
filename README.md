@@ -1,6 +1,6 @@
 ## Animated Wheels of Fortune (Audio Animation)
 
-**Group Project:** Wheels of Fortune (p5.js)
+**Creative Coding (Individual Submission):** Wheels of Fortune (p5.js)
 
 **Introduction:**
 
