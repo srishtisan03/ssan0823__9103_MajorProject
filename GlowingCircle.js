@@ -31,7 +31,7 @@ class GlowingCircle {
 
         fill(255); // White fill for the circle
         noStroke(); // Do not draw a stroke around the circle
-        ellipse(this.x, this.y, mappedRadius * 2, mappedRadius * 2);
+        ellipse(this.x, this.y, mappedRadius * 3, mappedRadius * 3);
 
         // Reset shadow to avoid affecting other elements
         drawingContext.shadowBlur = 0;
