@@ -17,17 +17,17 @@ class GlowingCircle {
         let currentColor = colors || this.glowColor;
 
         // Get audio data (adjust as needed)
-    let amplitude = fft.getEnergy(20, 20000); // Get overall energy
+        let amplitude = fft.getEnergy(20, 20000); // Get overall energy
 
-    // Map audio data to a new radius (adjust mapping function and range)
-    let mappedRadius = map(amplitude, 0, 255, this.radius/2, this.radius * 2);
+        // Map audio data to a new radius (adjust mapping function and range)
+        let mappedRadius = map(amplitude, 0, 255, this.radius / 2, this.radius * 2);
 
         // Apply the glow effect using canvas shadow properties 
-        drawingContext.shadowBlur = this.shadowBlur; 
+        drawingContext.shadowBlur = this.shadowBlur;
 
         // Configure the shadow color with modified opacity
         drawingContext.shadowColor = `rgba(${this.glowColor[0]}, ${this.glowColor[1]}, 
-            ${this.glowColor[2]}, ${this.glowColor[3] / 200})`; 
+            ${this.glowColor[2]}, ${this.glowColor[3] / 200})`;
 
         fill(255); // White fill for the circle
         noStroke(); // Do not draw a stroke around the circle

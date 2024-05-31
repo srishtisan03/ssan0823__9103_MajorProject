@@ -7,7 +7,7 @@ class RadiatingLines {
         this.glowColor = glowColor;
         this.strokeWeight = strokeWeight;
     }
-  
+
     display() {
         push();
         translate(this.x, this.y);
@@ -21,21 +21,19 @@ class RadiatingLines {
         strokeCap(ROUND);
 
         // Get energy levels for mid and treble frequencies
-    
         let midEnergy = fft.getEnergy('mid');
         let trebleEnergy = fft.getEnergy('treble');
-      
-        
+
+
         for (let i = 0; i < this.numLines; i++) {
             let angle = TWO_PI / this.numLines * i;
 
-              // Map mid or treble energy to line length 
-         
-          let mappedLength = map(midEnergy, 0, 300, this.length / 2, this.length); 
-          //let mappedLength = map(trebleEnergy, 0, 255, this.length / 4, this.length); 
+            // Map mid or treble energy to line length 
+            let mappedLength = map(midEnergy, 0, 300, this.length / 2, this.length);
+            //let mappedLength = map(trebleEnergy, 0, 255, this.length / 4, this.length); 
 
-          let x2 = mappedLength * cos(angle);
-          let y2 = mappedLength * sin(angle);
+            let x2 = mappedLength * cos(angle);
+            let y2 = mappedLength * sin(angle);
             line(0, 0, x2, y2);
         }
 

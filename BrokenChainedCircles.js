@@ -22,7 +22,7 @@ class BrokenChainedCircles {
 
             let posX = this.x + cos(angle) * this.radius;
             let posY = this.y + sin(angle) * this.radius;
-            this.positions.push({x: posX, y: posY, diameter: circleDiameter});
+            this.positions.push({ x: posX, y: posY, diameter: circleDiameter });
 
             angle += angleStep; // Increment angle for the next circle
         }
@@ -38,7 +38,7 @@ class BrokenChainedCircles {
 
     applyGlow(x, y, diameter) {
         let glowColor = color(this.glowColor[0], this.glowColor[1], this.glowColor[2], this.glowColor[3]);
-        
+
         drawingContext.shadowBlur = 50;
         drawingContext.shadowColor = glowColor;
 
