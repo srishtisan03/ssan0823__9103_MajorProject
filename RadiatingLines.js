@@ -21,7 +21,7 @@ class RadiatingLines {
         strokeCap(ROUND);
 
         // Get energy levels for mid and treble frequencies
-        let bassEnergy = fft.getEnergy('bass');
+    
         let midEnergy = fft.getEnergy('mid');
         let trebleEnergy = fft.getEnergy('treble');
       
@@ -29,8 +29,8 @@ class RadiatingLines {
         for (let i = 0; i < this.numLines; i++) {
             let angle = TWO_PI / this.numLines * i;
 
-              // Map mid or treble energy to line length (adjust max values as needed)
-          //let mappedLength = map(bassEnergy, 0, 255, this.length / 4, this.length); 
+              // Map mid or treble energy to line length 
+         
           let mappedLength = map(midEnergy, 0, 300, this.length / 2, this.length); 
           //let mappedLength = map(trebleEnergy, 0, 255, this.length / 4, this.length); 
 

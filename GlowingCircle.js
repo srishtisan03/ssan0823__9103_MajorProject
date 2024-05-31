@@ -13,7 +13,15 @@ class GlowingCircle {
      * Applies a shadow to create a glow around the circle and then resets the drawing context.
      */
 
-    display() {
+    display(colors) {
+        let currentColor = colors || this.glowColor;
+
+        // Get audio data (adjust as needed)
+    let amplitude = fft.getEnergy(20, 20000); // Get overall energy
+
+    // Map audio data to a new radius (adjust mapping function and range)
+    let mappedRadius = map(amplitude, 0, 255, this.radius/2, this.radius * 2);
+
         // Apply the glow effect using canvas shadow properties 
         drawingContext.shadowBlur = this.shadowBlur; 
 
@@ -23,7 +31,7 @@ class GlowingCircle {
 
         fill(255); // White fill for the circle
         noStroke(); // Do not draw a stroke around the circle
-        ellipse(this.x, this.y, this.radius * 2, this.radius * 2);
+        ellipse(this.x, this.y, mappedRadius * 2, mappedRadius * 2);
 
         // Reset shadow to avoid affecting other elements
         drawingContext.shadowBlur = 0;
