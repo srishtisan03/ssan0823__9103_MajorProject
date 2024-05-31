@@ -16,12 +16,26 @@ diamondAndCircle1,
 flowerCircle, 
 flower,
 radiatingLines2, 
-glowingCircle2;
+glowingCircle2,
+song, button;
+
+function preload(){
+  song = loadSound('Assets/Nul Tiel Records - Glass Ceiling.mp3');
+}
 
 function setup() {
     
   // Set the canvas to the full browser window size
     createCanvas(windowWidth, windowHeight);
+
+     //play the song
+     song.loop();
+     fft = new p5.FFT();
+     fft.setInput(song);
+
+     button = createButton("Play/Pause");
+     button.position((width - button.width) / 2, height - button.height - 2);
+     button.mousePressed(play_pause);
 
   const glowColors = [
     [199, 74, 134, 150],  // Pink glow
@@ -88,6 +102,19 @@ function setup() {
 //Drawing the elements on the canvas
 function draw() {
   background(27,27,37);
+
+  let spectrum = fft.analyze();
+
+  
+
+  // Get energy levels for bass, mid, and treble
+  let bass = fft.getEnergy('bass');
+  let mid = fft.getEnergy('mid');
+  let treble = fft.getEnergy('treble');
+
+
+
+
   concentric.display(); 
   chain.display();
   flower.display();
@@ -105,6 +132,17 @@ function draw() {
   brokenChain.display();
   brokenChain2.display();
   brokenChain3.display();
+}
+
+//Function to play/pause of the song
+function play_pause() {
+  if (song.isPlaying()) {
+      song.pause();
+      fft.stop(); // Stop audio analysis
+  } else {
+      song.play();
+      fft.start(); // Start audio analysis
+  }
 }
 
 // Handle window resize event
