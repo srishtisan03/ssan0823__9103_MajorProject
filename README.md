@@ -2,11 +2,11 @@
 
 **Creative Coding (Individual Submission):** Wheels of Fortune (p5.js)
 
-**Introduction:**
+### **Introduction:**
 
 This is my individual variation of the group-created "Wheels of Fortune" animation in p5.js. My animation utilizes **audio** to dynamically generate radiating lines that respond visually to the sound's level and frequency content.
 
-**Instructions:**
+### **Instructions:**
 
 1. Click the "Play/Pause" button to start/Pause the animation.
 2. The animation will react visually to the audio playing in your browser or computer.
